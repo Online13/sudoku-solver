@@ -1,19 +1,34 @@
+html {
+	scroll-behavior: smooth;
+}
 body {
 	margin: 0;
 	height: 100vh;
 	font-family: Ubuntu, sans-serif;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box;}
 
 *::selection {
 	background-color: inherit;
 	color: inherit;
 }
 
+button {
+	white-space: nowrap;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
 h1, h2, h3, h4, p {
 	margin: 0;
 }
+
+strong { padding: 0; }
 
 .info {
 	width: 100%;
@@ -32,11 +47,13 @@ p.duration {
 	font-size: 24px;
 }
 
-p.duration .times {
+.times {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 60px;
+	flex-shrink: 0;
+	flex-basis: 60px;
 	height: 60px;
 	font-size: 28px;
 	font-weight: bolder;
@@ -44,10 +61,17 @@ p.duration .times {
 	cursor: pointer;
 }
 
+.times:hover {
+	background-color: rgba(29, 29, 29, 0.151);
+}
+
 #container {
 	width: 100%;
 	height: 100%;
+	position: relative;
 }
+
+/* ...................................... */
 
 .header {
 	width: 100%;
@@ -79,7 +103,7 @@ p.duration .times {
 	align-items: center;
 }
 
-.options button {
+.options button, .helper button {
 	margin: 0 12px;
 	border: 1px solid transparent;
 	padding: 0 12px;
@@ -95,7 +119,6 @@ p.duration .times {
 
 .main {
 	width: 100%;
-	height: calc(100vh - 140px);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -148,6 +171,7 @@ p.duration .times {
 
 .grid td.click {
 	background-color: rgba(41, 90, 226, 0.315);
+	border: 3px solid rgb(0, 119, 255);
 	color: white;
 }
 .grid td.use {
@@ -185,6 +209,49 @@ p.duration .times {
 	background-color: rgba(192, 192, 192, 0.24);
 }
 
+/* HELPER */
+
+.helper {
+	width: 100%;
+	height: 100%;
+}
+
+.helper .helper-header {
+	width: 100%;
+	height: 70px;
+	padding: 0 22px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(4, 95, 199);
+	color: white;
+}
+
+.helper .helper-content {
+	width: 100%;
+	height: calc(100% - 70px);
+	padding: 32px;
+}
+
+.image {
+	width: 400px;
+	border: 1px solid silver;
+	margin-top: 22px;
+}
+
+.image img {
+	width: 100%;
+	height: auto;
+}
+
+.helper ul {
+	margin: 0;
+	padding-left: 15px;
+}
+
+.helper li {
+	padding: 8px 12px;
+}
 
 @media only screen and (min-width: 550px) {
 	.header {
